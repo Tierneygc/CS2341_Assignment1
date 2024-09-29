@@ -1,46 +1,50 @@
-public class Queue<Item>{
+public class Queue<Item> {
+    private Node<Item> first;
+    private Node<Item> last;
+    private int size;
 
-    private Node first, last;
-
-    private class Node
-    {
-        Item item;
-        Node next;
+    private static class Node<Item> {
+        private Item item;
+        private Node<Item> next;
     }
 
-    public boolean isEmpty()
-    {
-        return first==null;
+    public Queue() {
+        first = null;
+        last = null;
+        size = 0;
     }
 
-    public void enqueue(Item item)
-    {
-        Node oldlast = last;
+    public boolean isEmpty() {
+        return first == null;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void enqueue(Item item) {
+        Node<Item> oldLast = last;
+        last = new Node<>();
         last.item = item;
         last.next = null;
-        if(isEmpty())
-        {
-            first.next = last;
+        if (isEmpty()) {
+            first = last;
+        } else {
+            oldLast.next = last;
         }
-        else
-        {
-            oldlast.next = last;
-        }
+        size++;
     }
 
-    public Item dequeue()
-    {
+    public Item dequeue() {
+        if (isEmpty()) {
+            throw new RuntimeException("Queue underflow");
+        }
         Item item = first.item;
         first = first.next;
-
-        if(isEmpty())
-        {
+        if (isEmpty()) {
             last = null;
         }
+        size--;
         return item;
     }
-
-
-
-
 }

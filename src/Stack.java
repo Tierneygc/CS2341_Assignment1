@@ -1,34 +1,40 @@
-public class Stack<Item>
-{
-    private Node first;
+public class Stack<Item> {
+    private Node<Item> top;
+    private int size;
 
-    private class Node
-    {
-        Item item;
-        Node next;
+    private static class Node<Item> {
+        private Item item;
+        private Node<Item> next;
     }
 
-    public boolean isEmpty()
-    {
-        return first == null;
+    public Stack() {
+        top = null;
+        size = 0;
     }
 
-    public void push(Item item)
-    {
-        Node oldfirst = first;
-        first = new Node();
-        first.item = item;
-        first.next = oldfirst;
+    public boolean isEmpty() {
+        return top == null;
     }
 
-    public Item pop()
-    {
-        Item item = first.item;
-        first = first.next;
+    public int size() {
+        return size;
+    }
+
+    public void push(Item item) {
+        Node<Item> oldTop = top;
+        top = new Node<>();
+        top.item = item;
+        top.next = oldTop;
+        size++;
+    }
+
+    public Item pop() {
+        if (isEmpty()) {
+            throw new RuntimeException("Stack underflow");
+        }
+        Item item = top.item;
+        top = top.next;
+        size--;
         return item;
     }
-
-
-
-
 }
