@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static java.lang.Integer.parseInt;
 
@@ -75,7 +77,7 @@ public void processLogFile(String filePath) {
         System.out.println("Memory Warning Count: " + logprocessor.memoryWarnings);
         System.out.println("Info Count: " + logprocessor.infoCount);
 
-        logprocessor.errorStack.insertionSort();
+//        logprocessor.errorStack.insertionSort();
         int i = 1;
         while (i <= 100 && !logprocessor.errorStack.isEmpty()){
             System.out.println(logprocessor.errorStack.pop());
