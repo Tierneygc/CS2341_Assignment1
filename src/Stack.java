@@ -46,25 +46,41 @@ public class Stack<T> {
                                     Node sorted) {
 
         // Special case for the head end
+        if (sorted == null){
+            newnode.next = sorted;
+            sorted = newnode;
+        }
 
+        else {
             Node curr = sorted;
+            System.out.println("curr" + curr.item);
             String text1 = (String) curr.item.toString();
+            System.out.println("text1" + text1);
             text1 = text1.substring(18, 20);
+            System.out.println("substring" + text1);
             int secs1 = parseInt(text1);
+            System.out.println("int" + secs1);
 
-        String text2 = (String) newnode.item.toString();
-        text2 = text2.substring(18, 20);
+            String text2 = (String) newnode.item.toString();
+            text2 = text2.substring(18, 20);
             int secs2 = parseInt(text2);
+            if (secs1 >= secs2) {
+                newnode.next = sorted;
+                sorted = newnode;
+            } else {
 
 
-            // Locate the node before the
-            // point of insertion
-            while (curr.next != null &&
-                    secs1 < secs2) {
-                curr = curr.next;
+                // Locate the node before the
+                // point of insertion
+                while (curr.next != null &&
+                        secs1 < secs2) {
+                    curr = curr.next;
+                }
+                newnode.next = curr.next;
+                curr.next = newnode;
+
             }
-            newnode.next = curr.next;
-            curr.next = newnode;
+        }
 
         return sorted;
     }

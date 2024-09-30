@@ -29,6 +29,8 @@ public class LogProcessor {
     }
 
 public void processLogFile(String filePath) {
+    ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+    InputStream is = classloader.getResourceAsStream(filePath);
     try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
         String line;
         while ((line = br.readLine()) != null) {
@@ -65,12 +67,13 @@ public void processLogFile(String filePath) {
     public static void main(String[] args) {
 
         LogProcessor logprocessor = new LogProcessor();
-        logprocessor.processLogFile("log-data.csv");
 
-        System.out.println("Error Count" + logprocessor.errorCount);
-        System.out.println("Warn Count" + logprocessor.warnCount);
-        System.out.println("Memory Warning Count" + logprocessor.memoryWarnings);
-        System.out.println("Info Count" + logprocessor.infoCount);
+        logprocessor.processLogFile("src/log-data.csv");
+
+        System.out.println("Error Count: " + logprocessor.errorCount);
+        System.out.println("Warn Count: " + logprocessor.warnCount);
+        System.out.println("Memory Warning Count: " + logprocessor.memoryWarnings);
+        System.out.println("Info Count: " + logprocessor.infoCount);
 
         logprocessor.errorStack.insertionSort();
         int i = 1;
