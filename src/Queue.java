@@ -1,11 +1,11 @@
-public class Queue<Item> {
-    private Node<Item> first;
-    private Node<Item> last;
+public class Queue<String> {
+    private Node<String> first;
+    private Node<String> last;
     private int size;
 
-    private static class Node<Item> {
-        private Item item;
-        private Node<Item> next;
+    private static class Node<String> {
+        private String item;
+        private Node<String> next;
     }
 
     public Queue() {
@@ -22,8 +22,8 @@ public class Queue<Item> {
         return size;
     }
 
-    public void enqueue(Item item) {
-        Node<Item> oldLast = last;
+    public void enqueue(String item) {
+        Node<String> oldLast = last;
         last = new Node<>();
         last.item = item;
         last.next = null;
@@ -35,11 +35,11 @@ public class Queue<Item> {
         size++;
     }
 
-    public Item dequeue() {
+    public String dequeue() {
         if (isEmpty()) {
             throw new RuntimeException("Queue underflow");
         }
-        Item item = first.item;
+        String item = first.item;
         first = first.next;
         if (isEmpty()) {
             last = null;
