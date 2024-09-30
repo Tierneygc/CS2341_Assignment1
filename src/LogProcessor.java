@@ -1,4 +1,7 @@
-
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -46,22 +49,35 @@ public void processLogFile(String filePath) {
             errorCount++;
             errorStack.push(logEntry);
 
-        } else if (logEntry.contains("WARN")) {
+        }
+        else if (logEntry.contains("WARN")) {
             warnCount++;
             if (logEntry.contains("Memory")) {
                 memoryWarnings++;
+            }
         }
-    } else {
-infoCount++;
+        else {
+            infoCount++;
+        }
     }
-}
 
 
     public static void main(String[] args) {
 
         LogProcessor logprocessor = new LogProcessor();
         logprocessor.processLogFile("log-data.csv");
+
+        System.out.println("Error Count" + logprocessor.errorCount);
+        System.out.println("Warn Count" + logprocessor.warnCount);
+        System.out.println("Memory Warning Count" + logprocessor.memoryWarnings);
+        System.out.println("Info Count" + logprocessor.infoCount);
+
         logprocessor.errorStack.insertionSort();
+        int i = 1;
+        while (i <= 100 && !logprocessor.errorStack.isEmpty()){
+            System.out.println(logprocessor.errorStack.pop());
+            i++;
+        }
 
     }
 
