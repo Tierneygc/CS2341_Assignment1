@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aba7fd1e-c31c-43bf-8a0a-703f5b507932" name="Changes" comment="logprocessor &amp; insertion sort">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LogProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LogProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stack.java" afterDir="false" />
-    </list>
+    <list default="true" id="aba7fd1e-c31c-43bf-8a0a-703f5b507932" name="Changes" comment="assignment final" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727662688163</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="assignment final">
+      <option name="closed" value="true" />
+      <created>1727719395607</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727719395607</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +127,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="aaaa" />
     <MESSAGE value="logprocessor &amp; insertion sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="logprocessor &amp; insertion sort" />
+    <MESSAGE value="assignment final" />
+    <option name="LAST_COMMIT_MESSAGE" value="assignment final" />
   </component>
 </project>
